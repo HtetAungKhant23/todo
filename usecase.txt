@@ -1,0 +1,23 @@
+Create Todo
+- should create a new todo with Title and Description
+  - response object title should be same with created Title
+  - response object description should be same with created Description
+  - response object completed false
+  - response object status should be 201
+
+Get All Todos
+- should get all todos from database
+  - response object array with status 200
+
+Get Todo with id
+- should get todo with id
+  - response object with id and status 200
+
+Update Todo with id
+- should update todo with id and complete true
+  - response object for completed should be true
+
+Delete Todo with id
+- should delete todo with id
+  - object should be delete and response status should be 204
+  - try to get with id and it should be not found
