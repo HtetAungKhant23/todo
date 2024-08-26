@@ -19,5 +19,5 @@ Update Todo with id
 
 Delete Todo with id
 - should delete todo with id
-  - object should be delete and response status should be 204
+  - object should be delete
   - try to get with id and it should be not found
