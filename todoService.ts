@@ -19,4 +19,8 @@ export class TodoService {
   async updateComplete(id: string, action: boolean): Promise<Todo> {
     return this.todoRepo.updateComplete(id, action);
   }
+
+  async delete(id: string): Promise<void> {
+    return this.todoRepo.delete(id);
+  }
 }

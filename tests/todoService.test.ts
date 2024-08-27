@@ -53,4 +53,14 @@ describe("Create Todo", () => {
     const updTodo = await todoService.updateComplete(newTodo.id, true);
     expect(updTodo.completed).toBe(true);
   });
+
+  it("should delete todo with id", async () => {
+    const newTodo = await todoService.create("oknasa", "wanna oknasa");
+    const toDelTodo = await todoService.getById(newTodo.id);
+    expect(toDelTodo).not.toBeNull();
+    if (!toDelTodo) return;
+    await todoService.delete(toDelTodo.id);
+    const deletedTodo = await todoService.getById(toDelTodo.id);
+    expect(deletedTodo).toBeNull();
+  });
 });
