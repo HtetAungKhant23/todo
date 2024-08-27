@@ -42,4 +42,15 @@ describe("Create Todo", () => {
     expect(todo.id).toBe(newTodo.id);
     expect(todo.title).toBe(newTodo.title);
   });
+
+  it("should return null if todo id does not exist", async () => {
+    const todo = await todoService.getById("1");
+    expect(todo).toBeNull();
+  });
+
+  it("should update todo to complete with id", async () => {
+    const newTodo = await todoService.create("oknasa", "wanna oknasa");
+    const updTodo = await todoService.updateComplete(newTodo.id, true);
+    expect(updTodo.completed).toBe(true);
+  });
 });

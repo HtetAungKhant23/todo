@@ -32,4 +32,17 @@ export class TodoRepository {
     if (!todo) return null;
     return new Todo(todo.id, todo.title, todo.description, todo.completed);
   }
+
+  async updateComplete(id: string, action: boolean): Promise<Todo> {
+    const updatedTodo = await this.prisma.todo.update({
+      where: { id },
+      data: { completed: action },
+    });
+    return new Todo(
+      updatedTodo.id,
+      updatedTodo.title,
+      updatedTodo.description,
+      updatedTodo.completed,
+    );
+  }
 }

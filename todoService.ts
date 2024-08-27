@@ -15,4 +15,8 @@ export class TodoService {
   async getById(id: string): Promise<Todo | null> {
     return this.todoRepo.getById(id);
   }
+
+  async updateComplete(id: string, action: boolean): Promise<Todo> {
+    return this.todoRepo.updateComplete(id, action);
+  }
 }
