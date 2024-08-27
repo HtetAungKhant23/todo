@@ -26,4 +26,11 @@ describe("Create Todo", () => {
     expect(todo.description).toBe("Buy milk from g&g");
     expect(todo.completed).toBe(false);
   });
+
+  it("should be get all todos", async () => {
+    await todoService.create("One", "one desc");
+    await todoService.create("Two", "two desc");
+    const todos = await todoService.get();
+    expect(todos.length).toBe(2);
+  });
 });

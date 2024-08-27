@@ -7,4 +7,8 @@ export class TodoService {
   async create(title: string, description: string): Promise<Todo> {
     return this.todoRepo.create(title, description);
   }
+
+  async get(): Promise<Todo[]> {
+    return this.todoRepo.get();
+  }
 }

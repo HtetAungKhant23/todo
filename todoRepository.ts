@@ -19,4 +19,11 @@ export class TodoRepository {
       newTodo.completed,
     );
   }
+
+  async get(): Promise<Todo[]> {
+    const todos = await this.prisma.todo.findMany();
+    return todos.map(
+      (todo) => new Todo(todo.id, todo.title, todo.description, todo.completed),
+    );
+  }
 }
