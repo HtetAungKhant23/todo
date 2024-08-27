@@ -1,7 +1,8 @@
 import { PrismaClient } from "@prisma/client";
 import { Todo } from "../entity/todo";
+import { ITodoRepository } from "./ITodoRepository";
 
-export class TodoRepository {
+export class TodoRepository implements ITodoRepository {
   constructor(private prisma: PrismaClient) {}
 
   async create(title: string, description: string): Promise<Todo> {

@@ -1,8 +1,8 @@
 import { Todo } from "../entity/todo";
-import { TodoRepository } from "../infrastructure/todoRepository";
+import { ITodoRepository } from "../infrastructure/ITodoRepository";
 
 export class TodoService {
-  constructor(private todoRepo: TodoRepository) {}
+  constructor(private todoRepo: ITodoRepository) {}
 
   async create(title: string, description: string): Promise<Todo> {
     return this.todoRepo.create(title, description);
