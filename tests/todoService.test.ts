@@ -1,6 +1,6 @@
 import { PrismaClient } from "@prisma/client";
-import { TodoRepository } from "../todoRepository";
-import { TodoService } from "../todoService";
+import { TodoRepository } from "../src/core/infrastructure/todoRepository";
+import { TodoService } from "../src/core/usecases/todoService";
 
 const prisma = new PrismaClient();
 const todoRepo = new TodoRepository(prisma);
