@@ -26,4 +26,10 @@ export class TodoRepository {
       (todo) => new Todo(todo.id, todo.title, todo.description, todo.completed),
     );
   }
+
+  async getById(id: string): Promise<Todo | null> {
+    const todo = await this.prisma.todo.findUnique({ where: { id } });
+    if (!todo) return null;
+    return new Todo(todo.id, todo.title, todo.description, todo.completed);
+  }
 }

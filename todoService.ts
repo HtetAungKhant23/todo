@@ -11,4 +11,8 @@ export class TodoService {
   async get(): Promise<Todo[]> {
     return this.todoRepo.get();
   }
+
+  async getById(id: string): Promise<Todo | null> {
+    return this.todoRepo.getById(id);
+  }
 }

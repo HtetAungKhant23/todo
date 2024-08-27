@@ -33,4 +33,13 @@ describe("Create Todo", () => {
     const todos = await todoService.get();
     expect(todos.length).toBe(2);
   });
+
+  it("should be get todo by id", async () => {
+    const newTodo = await todoService.create("oknasa", "wanna oknasa");
+    const todo = await todoService.getById(newTodo.id);
+    expect(todo).not.toBeNull();
+    if (!todo) return;
+    expect(todo.id).toBe(newTodo.id);
+    expect(todo.title).toBe(newTodo.title);
+  });
 });
